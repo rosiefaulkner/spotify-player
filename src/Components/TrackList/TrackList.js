@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./TrackList.css";
 import Track from "../Track/Track";
-import SearchResults from "../SearchResults/SearchResults";
 
-function TrackList() {
+function TrackList(tracks) {
+  console.log("tracks", tracks);
+  //const test = tracks.tracks.searchResults.test.rosie;
+  //const test = tracks["tracks"]["searchResults"]["test"];
+  //console.log("tracks.tracks.searchResults.test", tracks.tracks.searchResults.test);
   return (
     <div className="TrackList">
-      {/* You will add a map method that renders a set of Track components */}
+        {(Object.keys(tracks)).map((track) => {
+            <Track track={track} />
+        })}
     </div>
   );
 }
