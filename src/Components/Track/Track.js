@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Track.css";
 
-function Track(track) {
+function Track({track}) {
   const [isRemoval, setIsRemoval] = useState(false);
   const renderAction = () => {
     return <button className="TrackAction">{isRemoval ? "-" : "+"}</button>;
@@ -11,7 +11,7 @@ function Track(track) {
     <div className="Track">
       <>
         <div className="Track-information">
-          <h3>{track}</h3>
+          <h3>{track.artist}</h3>
           <p>
             {track.artist} | {track.album}
           </p>
