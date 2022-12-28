@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./TrackList.css";
 import Track from "../Track/Track";
 
-function TrackList(tracks) {
+function TrackList(tracks, onAdd, isRemoval) {
   return (
     <div className="TrackList">
         {/* <Track track={(tracks.tracks.searchResults[0])} /> */}
