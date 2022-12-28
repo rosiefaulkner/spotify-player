@@ -5,8 +5,10 @@ import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
 
 function App({ artist, album, id }) {
-  const test = [{artist:"rosie artist", album:"rosie album", id:"1"}, {artist:"rosie artist", album:"rosie album", id:"1"}];
+  const test = [{artist:"Rosie artist", album:"Rosie Best Album", id:"1"}, {artist:"Kareem", album:"Kareem's Dream Album", id:"2"}];
   const [searchResults, setSearchResults] = useState(test);
+  const [playlistName, setPlaylistName] = useState("Summer Playlist");
+  const [playlistTracks, setPlaylistTracks] = useState(test);
   return (
     <div>
       <h1>
@@ -16,7 +18,7 @@ function App({ artist, album, id }) {
         <SearchBar />
         <div className="App-playlist">
           <SearchResults searchResults={searchResults} />
-          <Playlist searchResults={searchResults} />
+          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
         </div>
       </div>
     </div>
