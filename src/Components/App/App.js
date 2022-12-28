@@ -9,6 +9,15 @@ function App({ artist, album, id }) {
   const [searchResults, setSearchResults] = useState(test);
   const [playlistName, setPlaylistName] = useState("Summer Playlist");
   const [playlistTracks, setPlaylistTracks] = useState(test);
+
+  const addTrack = (track) => {
+    const trackId = track.id;
+    const allTracks = playlistTracks;
+    const songExistsInPlaylist = allTracks.some(el => el.id === trackId);
+    if (!songExistsInPlaylist) allTracks.push({track});
+    setPlaylistTracks(allTracks);
+  }
+
   return (
     <div>
       <h1>
