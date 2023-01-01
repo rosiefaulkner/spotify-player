@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Track.css";
 
-function Track({track, onAdd}) {
-  const addTrack = () => {
+function Track({track}, onAdd = () => {}, onRemove = () => {}, isRemoval = false) {
+  // Remove track from playlist
+  const addTrack = (track) => {
     onAdd(track);
   }
+  // Remove track from playlist
+  const removeTrack = (track) => {
+    onRemove(track)
+  }
+
   const renderAction = () => {
-    return <button className="TrackAction">{isRemoval ? "-" : "+"}</button>;
+    return isRemoval ? "-" : "+";
   };
 
   return (
@@ -18,7 +24,7 @@ function Track({track, onAdd}) {
             {track.artist} | {track.album}
           </p>
         </div>
-        <button onClick={addTrack} className="Track-action">{renderAction}</button>
+        <button onClick={isRemoval ? removeTrack : addTrack} className="Track-action">{renderAction()}</button>
       </>
     </div>
   );
